@@ -93,7 +93,8 @@ def speleo_sensor(t,d18O,T,dt,model='Adv-Disp',tau0=1.0,Pe=1.0):
         print("Error: model " + model + " not found")
 
     # obtain normalization constant using Simpson's rule
-    hint = si.simps(h,tau)
+    # hint = si.simps(h,tau)
+    hint = si.simpson(h,tau) # The simps function was renamed to simpson since SciPy version 1.6.0.
     # normalize transit time distribution
     h = h/hint
 
